@@ -4,6 +4,7 @@ import { LoginComponent } from './home/login/login.component';
 import { ListTaskComponent } from './task/list-task/list-task.component';
 import { CreateTaskComponent } from './task/create-task/create-task.component';
 import { SignupComponent } from './home/signup/signup.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -13,15 +14,18 @@ const routes: Routes = [
   },
   {
     path: 'tasks',
-    component: ListTaskComponent
+    component: ListTaskComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'create',
-    component: CreateTaskComponent
+    component: CreateTaskComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'signup',

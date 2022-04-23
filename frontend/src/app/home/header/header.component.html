@@ -1,14 +1,14 @@
 <mat-toolbar color="primary">
   <ul>
-    <a routerLink="tasks">List Task</a>
+    <a *ngIf="_authservice.isLogged()" routerLink="tasks">List Task</a>
   </ul>
   <ul>
-    <a routerLink="create">Create Task</a>
+    <a *ngIf="_authservice.isLogged()" routerLink="create">Create Task</a>
   </ul>
   <span class="spacer"></span>
   <ul>
-    <a mat-button routerLink="signup">Sign Up</a>
-    <a mat-button routerLink="login">Login</a>
-    <a mat-button>Logout</a>
+    <a *ngIf="!_authservice.isLogged()" mat-button routerLink="signup">Sign Up</a>
+    <a *ngIf="!_authservice.isLogged()"  mat-button routerLink="login">Login</a>
+    <a *ngIf="_authservice.isLogged()" mat-button>Logout</a>
   </ul>
 </mat-toolbar>
